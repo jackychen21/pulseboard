@@ -49,7 +49,7 @@ If you skip step 3, the app starts in demo mode and persists sample tasks to `lo
 
 1. Create a new Supabase project.
 2. Enable anonymous sign-ins in `Authentication > Providers > Anonymous`.
-3. Run the SQL in [supabase/schema.sql](/Users/jackychen/Documents/Codex/2026-07-28/1-j/supabase/schema.sql).
+3. Run the SQL in [supabase/schema.sql](https://github.com/jackychen21/pulseboard/blob/main/supabase/schema.sql).
 4. Add the public `Project URL` and `anon` key to `.env`.
 
 ## Assessment mapping
