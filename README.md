@@ -11,7 +11,7 @@ PulseBoard is a polished Kanban-style task board built for the internship assess
 
 ## Stack
 
-- React 19
+- React
 - TypeScript
 - Vite
 - Supabase
@@ -51,17 +51,6 @@ If you skip step 3, the app starts in demo mode and persists sample tasks to `lo
 2. Enable anonymous sign-ins in `Authentication > Providers > Anonymous`.
 3. Run the SQL in [supabase/schema.sql](https://github.com/jackychen21/pulseboard/blob/main/supabase/schema.sql).
 4. Add the public `Project URL` and `anon` key to `.env`.
-
-## Assessment mapping
-
-- Required board: implemented with four default columns
-- Required persistence: Supabase-ready `tasks` table with RLS
-- Guest accounts: anonymous auth and per-user access isolation
-- Frontend states: loading, empty, and error states included
-- Advanced features implemented:
-  - Search and filtering
-  - Due date indicators
-  - Board summary stats
 
 ## Deployment
 
