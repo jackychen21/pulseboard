@@ -13,6 +13,8 @@ export function BoardColumn({ status, tasks, onDropTask }: BoardColumnProps) {
     <section
       className="board-column"
       onDragOver={(event) => event.preventDefault()}
+      // put the task id that I stored in the cache out and tell system that this task is going to
+      // change into this status.(dataTransfer.setData / getData) is native HTML5 API, we did not install any library.
       onDrop={(event) => {
         event.preventDefault();
         const taskId = event.dataTransfer.getData("text/plain");
