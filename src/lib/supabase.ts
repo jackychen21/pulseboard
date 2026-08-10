@@ -11,7 +11,7 @@ type TaskRow = {
   created_at: string;
 };
 
-## put the URL and ANON_KEY in .env, won't commit into the git.
+// put the URL and ANON_KEY in .env, won't commit into the git.
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
 
@@ -29,7 +29,7 @@ function mapTask(row: TaskRow): Task {
   };
 }
 
-## everytime before operate, check whether have a session already. If not, ask for an anonymous status
+// everytime before operate, check whether have a session already. If not, ask for an anonymous status
 async function ensureGuestSession(supabase: SupabaseClient) {
   const { data } = await supabase.auth.getSession();
   if (data.session) {
@@ -79,7 +79,7 @@ export const supabaseStore = {
 
     return (data ?? []).map((row) => mapTask(row as TaskRow));
   },
-## Here's so called "API" concept, ask tasks to insert a new data
+// Here's so called "API" concept, ask tasks to insert a new data
   async createTask(draft: TaskDraft): Promise<Task> {
     const supabase = getSupabaseClient();
     await ensureGuestSession(supabase);
