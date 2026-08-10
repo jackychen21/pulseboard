@@ -70,12 +70,12 @@ export function App() {
       sortTasks(
         current.map((task) => (task.id === taskId ? { ...task, status } : task)),
       ),
-    );
+    ); // this is for drag and it will instant renew cuz the logic of the code is pretending it will success at first
 
     try {
-      await store.updateStatus(taskId, status);
+      await store.updateStatus(taskId, status); // call the real API
     } catch (updateError) {
-      setTasks((current) =>
+      setTasks((current) => // if fail, change the outcome.(Optimistic Update)
         sortTasks(
           current.map((task) =>
             task.id === taskId ? { ...task, status: existing.status } : task,
