@@ -13,7 +13,7 @@ export function TaskCard({ task }: TaskCardProps) {
     <article
       className="task-card"
       draggable
-      ## when starts to drag, we put the card's id into browser's cache.
+      // when starts to drag, we put the card's id into browser's cache.
       onDragStart={(event) => {
         event.dataTransfer.setData("text/plain", task.id);
       }}
