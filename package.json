@@ -1,5 +1,5 @@
 {
-  "name": "1-j",
+  "name": "pulseboard",
   "version": "1.0.0",
   "description": "PulseBoard internship assessment submission",
   "scripts": {
@@ -19,7 +19,7 @@
     "packageManager": {
       "name": "pnpm",
       "version": "^11.9.0",
-      "onFail": "download"
+      "onFail": "warn"
     }
   },
   "type": "module",
