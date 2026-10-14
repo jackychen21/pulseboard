@@ -5,6 +5,7 @@ import { STATUSES, type Status, type Task, type TaskDraft, type TaskFilter } fro
 import { filterTasks, getSummary, groupTasks, sortTasks } from "./utils";
 import { getTaskStore } from "./lib/taskStore";
 import { supabaseStore } from "./lib/supabase";
+import { localStore } from "./lib/localStore";
 
 const defaultFilter: TaskFilter = {
   query: "",
@@ -13,11 +14,12 @@ const defaultFilter: TaskFilter = {
 };
 
 export function App() {
-  const [{ mode, store }] = useState(() => getTaskStore());
+  const [{ mode, store }, setDataSource] = useState(() => getTaskStore());
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
   const [savingTaskId, setSavingTaskId] = useState<string | null>(null);
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
   const [filter, setFilter] = useState<TaskFilter>(defaultFilter);
   const [open, setOpen] = useState(false);
 
@@ -28,7 +30,14 @@ export function App() {
       const data = await store.listTasks();
       setTasks(sortTasks(data));
     } catch (loadError) {
-      setError(loadError instanceof Error ? loadError.message : "Could not load tasks.");
+      if (mode === "supabase") {
+        // if the live backend can't be reached, fall back to local demo data so the board still works
+        setDataSource({ mode: "demo", store: localStore });
+        setTasks(sortTasks(await localStore.listTasks()));
+        setNotice("The live backend is unavailable right now, so the board is running in demo mode.");
+      } else {
+        setError(loadError instanceof Error ? loadError.message : "Could not load tasks.");
+      }
     } finally {
       setLoading(false);
     }
@@ -203,6 +212,7 @@ export function App() {
         </header>
 
         {error ? <div className="error-banner">{error}</div> : null}
+        {notice ? <p className="status-line">{notice}</p> : null}
 
         {loading ? (
           <section className="loading-state">

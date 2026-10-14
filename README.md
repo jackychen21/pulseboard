@@ -13,7 +13,7 @@ A Kanban task board with drag-and-drop status updates, filtering, due-date urgen
 - Due-date urgency indicators (overdue, due soon, no deadline)
 - Workspace summary stats
 - Guest sessions through Supabase anonymous auth
-- Demo fallback mode that runs without any backend configuration
+- Demo fallback mode that runs without any backend configuration, or when the live backend is unreachable
 
 ## Stack
 

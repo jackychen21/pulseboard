@@ -1,5 +1,18 @@
 import type { Task } from "./types";
 
+// dates are relative to today so the demo board never goes stale
+function daysFromNow(days: number): string {
+  const date = new Date();
+  date.setDate(date.getDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+function daysAgo(days: number): string {
+  const date = new Date();
+  date.setDate(date.getDate() - days);
+  return date.toISOString();
+}
+
 export const demoTasks: Task[] = [
   {
     id: "task-1",
@@ -7,8 +20,8 @@ export const demoTasks: Task[] = [
     description: "Dial in the hierarchy, rhythm, and typography so the board feels intentional.",
     status: "todo",
     priority: "high",
-    dueDate: "2026-07-30",
-    createdAt: "2026-07-27T16:00:00.000Z",
+    dueDate: daysFromNow(2),
+    createdAt: daysAgo(3),
   },
   {
     id: "task-2",
@@ -16,8 +29,8 @@ export const demoTasks: Task[] = [
     description: "Apply optimistic updates first, then sync the new status in the data layer.",
     status: "in_progress",
     priority: "high",
-    dueDate: "2026-07-29",
-    createdAt: "2026-07-27T18:30:00.000Z",
+    dueDate: daysFromNow(-1),
+    createdAt: daysAgo(3),
   },
   {
     id: "task-3",
@@ -25,8 +38,8 @@ export const demoTasks: Task[] = [
     description: "Document local setup, environment variables, and the SQL schema.",
     status: "in_review",
     priority: "normal",
-    dueDate: "2026-07-31",
-    createdAt: "2026-07-28T01:00:00.000Z",
+    dueDate: daysFromNow(6),
+    createdAt: daysAgo(2),
   },
   {
     id: "task-4",
@@ -35,7 +48,6 @@ export const demoTasks: Task[] = [
     status: "done",
     priority: "low",
     dueDate: null,
-    createdAt: "2026-07-26T12:00:00.000Z",
+    createdAt: daysAgo(4),
   },
 ];
-
