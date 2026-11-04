@@ -4,6 +4,8 @@ A Kanban task board with drag-and-drop status updates, filtering, due-date urgen
 
 **[Live demo →](https://pulseboard-red.vercel.app)**
 
+The live demo runs in demo mode, so tasks are saved in your browser's `localStorage`. Point it at your own Supabase project (see below) for shared, real-time persistence.
+
 ![PulseBoard board view](docs/screenshot.png)
 
 ## Features

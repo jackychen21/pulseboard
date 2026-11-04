@@ -80,7 +80,7 @@ export function NewTaskModal({ open, onClose, onSubmit }: NewTaskModalProps) {
               onChange={(event) =>
                 setForm((current) => ({ ...current, title: event.target.value }))
               }
-              placeholder="Ship the reviewer-ready board"
+              placeholder="Draft the release notes"
             />
           </label>
 
