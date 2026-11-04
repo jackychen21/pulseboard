@@ -34,7 +34,7 @@ export const demoTasks: Task[] = [
   },
   {
     id: "task-3",
-    title: "Write setup notes for reviewers",
+    title: "Write the setup guide",
     description: "Document local setup, environment variables, and the SQL schema.",
     status: "in_review",
     priority: "normal",

@@ -34,7 +34,7 @@ export function App() {
         // if the live backend can't be reached, fall back to local demo data so the board still works
         setDataSource({ mode: "demo", store: localStore });
         setTasks(sortTasks(await localStore.listTasks()));
-        setNotice("The live backend is unavailable right now, so the board is running in demo mode.");
+        setNotice("Running in demo mode. Tasks are saved in your browser.");
       } else {
         setError(loadError instanceof Error ? loadError.message : "Could not load tasks.");
       }
@@ -109,10 +109,10 @@ export function App() {
       <aside className="sidebar">
         <div className="brand-block">
           <p className="section-kicker">PulseBoard</p>
-          <h1>Kanban that feels sharp enough to demo.</h1>
+          <h1>Plan, move, and ship work at a glance.</h1>
           <p className="muted-copy">
-            A reviewer-ready task board with drag-and-drop, filtering, due date
-            signals, guest session support, and Supabase-ready persistence.
+            A Kanban task board with drag-and-drop, filtering, due date
+            signals, guest sessions, and real-time Supabase persistence.
           </p>
         </div>
 
@@ -200,7 +200,7 @@ export function App() {
       <main className="board-shell">
         <header className="board-topbar">
           <div>
-            <p className="section-kicker">Assessment board</p>
+            <p className="section-kicker">Your board</p>
             <h2>Build, move, and track work without losing the visual rhythm.</h2>
           </div>
           <div className="board-topbar__actions">
